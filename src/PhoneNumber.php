@@ -16,7 +16,7 @@ class PhoneNumber extends Field
 
     public $countriesToValidate = 'US';
 
-    public $ignoreValidation = false;
+    public $ignoreValidation = true;
 
     public function __construct(string $name, ?string $attribute = null, mixed $resolveCallback = null)
     {
