@@ -2,8 +2,12 @@
   <default-field :field="field">
     <template slot="field">
       <div class="flex items-center">
-        <select v-model="country" class="mr-3 form-control form-select" :class="errorClasses"
-                @input="handleCountyChange">
+        <select v-model="country"
+                class="mr-3 form-control form-select"
+                :class="errorClasses"
+                @input="handleCountyChange"
+                :readonly="field.readonly"
+        >
           <option value="tr">Türkiye</option>
           <option value="other">Diğer</option>
         </select>
@@ -13,6 +17,7 @@
                  class="w-full form-control form-input form-input-bordered"
                  placeholder="Ülke Kodu Giriniz örn: +381"
                  :class="errorClasses"
+                 :readonly="field.readonly"
           />
           <p class="help-text my-2 absolute" :class="{'error-text text-danger': hasError}">Ülke Koduyla beraber telefon
             girin. Örn: +381</p>
@@ -25,6 +30,7 @@
                :placeholder="placeholder"
                v-mask="mask"
                v-model="value"
+               :readonly="field.readonly"
         />
       </div>
 
